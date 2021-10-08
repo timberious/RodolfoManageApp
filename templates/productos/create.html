@@ -1,0 +1,74 @@
+{% include 'header.html' %}
+
+{% with messages= get_flashed_messages() %}
+
+{% if messages %}
+    <div class="alert alert-danger" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% endwith %}
+
+<br>
+<form method="post" action="/store" enctype="multipart/form-data">
+
+    <div class="card">
+        <div class="card-header">
+            Nuevo Producto
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del producto</h5>
+            <p class="card-text">
+
+                <div class="form-group">
+                    <label for="txtReferencia">Referencia:</label>
+                    <input id="txtReferencia" class="form-control" type="text" name="txtReferencia">
+                </divtxtReferencia>
+
+                <div class="form-group">
+                    <label for="txtMarca">Marca:</label>
+                    <input id="txtMarca" class="form-control" type="text" name="txtMarca">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtCantidadTotal">Cantidad Total:</label>
+                    <input id="txtCantidadTotal" class="form-control" type="text" name="txtCantidadTotal">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtPrecioUnd">Precio Unitario:</label>
+                    <input id="txtPrecioUnd" class="form-control" type="text" name="txtPrecioUnd">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtIndicIVA">Indicador de IVA:</label>
+                    <input id="txtIndicIVA" class="form-control" type="text" name="txtIndicIVA">
+                </div>
+                
+                <div class="form-group">
+                    <label for="txtCantIVA">Unidades Disponibles con IVA</label>
+                    <input id="txtCantIVA" class="form-control" type="text" name="txtCantIVA">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtPrecioIVA">Precio con IVA:</label>
+                    <input id="txtPrecioIVA" class="form-control" type="text" name="txtPrecioIVA">
+                </div>
+
+                <div class="form-group">
+                    <input class="btn btn-success" type="submit" value="Agregar">
+                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                </div>
+                
+                
+            </p>
+        </div>
+    </div>
+
+    
+    
+</form>
+{% include 'footer.html' %}

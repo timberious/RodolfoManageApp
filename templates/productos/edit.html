@@ -1,0 +1,73 @@
+{% include 'header.html' %}
+Formulario para Editar
+
+{% for producto in productos %}
+    
+
+    <form method="post" action="/update" enctype="multipart/form-data">
+
+        <div class="card">
+            <div class="card-header">
+                Edición de Producto
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Datos del Producto</h5>
+                <p class="card-text">
+
+                    <div class="form-group">
+                        <label for="txtID">ID:</label>
+                        <input id="txtID" value="{{ producto[0] }}" class="form-control" type="text" readonly="readonly" name="txtID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtReferencia">Referencia:</label>
+                        <input id="txtReferencia" value="{{ producto[1] }}" class="form-control" type="text" name="txtReferencia">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtMarca">Marca:</label>
+                        <input id="txtMarca" value="{{ producto[2] }}" class="form-control" type="text" name="txtMarca">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtCantidadTotal">Cantidad Total:</label>
+                        <input id="txtCantidadTotal" value="{{ producto[3] }}" class="form-control" type="text" name="txtCantidadTotal">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtPrecioUnd">Precio Unitario:</label>
+                        <input id="txtPrecioUnd" value="{{ producto[4] }}" class="form-control" type="text" name="txtPrecioUnd">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtIndicIVA">Indicador de IVA:</label>
+                        <input id="txtIndicIVA" value="{{ producto[5] }}" class="form-control" type="text" name="txtIndicIVA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtCantIVA">Unidades disponibles con IVA:</label>
+                        <input id="txtCantIVA" value="{{ producto[6] }}" class="form-control" type="text" name="txtCantIVA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtPrecioIVA">Precio con IVA:</label>
+                        <input id="txtPrecioIVA" value="{{ producto[7] }}" class="form-control" type="text" name="txtPrecioIVA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input class="btn btn-dark" type="submit" value="Modificar">
+                        <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                    </div>
+
+                    
+
+                </p>
+            </div>
+        </div>
+
+        
+        
+    </form>
+
+{% endfor %}
+{% include 'footer.html' %}

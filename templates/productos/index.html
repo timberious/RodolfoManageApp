@@ -1,0 +1,52 @@
+
+    {% include 'header.html' %}
+    <br>
+
+    <a href="{{url_for('create')}}" class="btn btn-success">
+
+        Ingresar Nuevo Producto
+
+    </a>
+    <br>
+    <br>
+
+
+    <table class="table table-light">
+        <thead style="text-align: center;" class="thead-light">
+            <tr>
+                <th>ID</th>
+                <th>Referencia</th>
+                <th>Marca</th>
+                <th>Cantidad Total</th>
+                <th>Precio Unitario</th>
+                <th>Indicador IVA</th>
+                <th>Cantidad IVA</th>
+                <th>Precio IVA</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody style="font-size: small; text-align: center;">
+            
+            {% for producto in productos %}
+            <tr>
+                <td>{{producto[0] }}</td>
+                <td>{{producto[1] }}</td>
+                <td>{{producto[2] }}</td>
+                <td>{{producto[3] }}</td>
+                <td>{{producto[4] }}</td>
+                <td>{{producto[5] }}</td>
+                <td>{{producto[6] }}</td>
+                <td>{{producto[7] }}</td>
+                <td>  
+                
+                    <a class="btn btn-warning" href="/edit/{{producto[0]}}">Editar</a> |
+                    <a onclick="return confirm('¿Desea Borrar el registro?')" class="btn btn-danger" href="/destroy/{{producto[0]}}">Eliminar</a>
+                
+                </td>
+            </tr>   
+            {% endfor %}
+            
+
+        </tbody>
+    </table>
+{% include 'footer.html' %}
