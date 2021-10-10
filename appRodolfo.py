@@ -59,7 +59,7 @@ def index():
 
 @app.route('/')
 def login():
-    return render_template('productos/login.html')
+    return render_template('productos/ejemplo.html')
 
 """ ------------------------------------------------------------------------------------------------------------ """
 """ FUNCION PARA VALIDAR INICIOS DE SESIÓN """
